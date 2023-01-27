@@ -1,10 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://newsapi.org/v2",
-  params: {
-    apiKey: "5bb3f7c3d7c049dea9425d57e5561caa",
-  },
+  baseURL: "http://localhost:4000/",
 });
 
 // Add a request interceptor
