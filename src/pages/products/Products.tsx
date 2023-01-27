@@ -23,9 +23,9 @@ export default function Products() {
             <Grid
               item
               xs={4}
+              key={product._id}
             >
               <Product
-                key={product._id}
                 name={product.name}
                 img={product?.imageURL}
               />
