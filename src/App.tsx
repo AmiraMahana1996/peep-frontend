@@ -11,6 +11,7 @@ function App() {
       <Box sx={{ flexGrow: 1 }}>
         <Grid
           container
+          direction="column"
           spacing={4}
         >
           <Grid
@@ -26,7 +27,6 @@ function App() {
           >
             <Grid
               container
-              spacing={2}
               direction="row"
               justifyContent={"center"}
               columns={{ xs: 4, sm: 8, md: 12 }}

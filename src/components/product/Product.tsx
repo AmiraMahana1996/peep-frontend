@@ -5,15 +5,17 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
+import { Link } from "react-router-dom";
+import "./style.css";
 export default function Product(props: any) {
+  console.log(props);
   return (
     <Card sx={{ maxWidth: 300 }}>
       <CardMedia
         component="img"
         alt="green iguana"
         height="140"
-        image={props.img}
+        image={props.product.imageURL}
       />
       <CardContent>
         <Typography
@@ -21,7 +23,7 @@ export default function Product(props: any) {
           variant="h5"
           component="div"
         >
-          {props.name}
+          {props.product.name}
         </Typography>
         <Typography
           variant="body2"
@@ -33,7 +35,13 @@ export default function Product(props: any) {
       </CardContent>
       <CardActions>
         <Button size="small">Share</Button>
-        <Button size="small">More Details</Button>
+
+        <Link
+          className="nav-product"
+          to={`product/${props.product._id}`}
+        >
+          <Button size="small">MORE DETAILS</Button>
+        </Link>
       </CardActions>
     </Card>
   );

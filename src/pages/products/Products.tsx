@@ -25,10 +25,7 @@ export default function Products() {
               xs={4}
               key={product._id}
             >
-              <Product
-                name={product.name}
-                img={product?.imageURL}
-              />
+              <Product product={product} />
               <br />
             </Grid>
           </>
