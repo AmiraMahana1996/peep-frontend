@@ -11,7 +11,7 @@ function App() {
       <Box sx={{ flexGrow: 1 }}>
         <Grid
           container
-          spacing={3}
+          spacing={4}
         >
           <Grid
             item
@@ -19,9 +19,21 @@ function App() {
           >
             <SearchAppBar />
           </Grid>
-        </Grid>
-        <Grid container>
-          <AppRoutes />
+
+          <Grid
+            item
+            xs={12}
+          >
+            <Grid
+              container
+              spacing={2}
+              direction="row"
+              justifyContent={"center"}
+              columns={{ xs: 4, sm: 8, md: 12 }}
+            >
+              <AppRoutes />
+            </Grid>
+          </Grid>
         </Grid>
       </Box>
     </Router>
