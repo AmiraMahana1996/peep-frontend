@@ -4,6 +4,12 @@
   justify-content: center !important;
   margin-bottom: 30px !important;
 }
+.css-iltpxr-MuiGrid-root {
+  max-width: 31% !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin-bottom: 30px !important;
+}
 .css-12n0uxm-MuiGrid-root > .MuiGrid-item {
   padding-left: 110px !important;
 }

@@ -1,0 +1,25 @@
+.pro-details-container {
+  padding: 20px !important;
+  margin-top: 20px;
+}
+.add-cart-card {
+  display: flex !important;
+  flex-flow: column;
+  justify-content: center !important;
+  align-items: center;
+  margin: 10px;
+}
+.head-text {
+  font-size: 23px;
+  font-weight: bold;
+}
+.value-text {
+  margin-left: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: gray;
+}
+.sec-container {
+  padding: 10px;
+  width: 300px;
+}

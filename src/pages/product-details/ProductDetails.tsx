@@ -1,24 +1,110 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Grid } from "@mui/material";
+import "./style.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getProductById } from "../../store/actions/products";
+import { IProduct } from "../../interfaces/Product";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import CardActions from "@mui/material/CardActions";
+import Button from "@mui/material/Button";
+import Rating from "@mui/material/Rating";
 export default function ProductDetails() {
+  const product: IProduct = useSelector((state: any) => state.products[0]);
+
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch<any>(getProductById(id));
+    console.log(product);
+  }, []);
+
   return (
     <>
       <Grid
         container
-        spacing={{ xs: 2, md: 3 }}
+        className="pro-details-container"
         columns={{ xs: 4, sm: 8, md: 12 }}
         sx={{ flexGrow: 1 }}
       >
-        {Array.from(Array(3)).map((_, index) => (
-          <Grid
-            xs={2}
-            sm={4}
-            md={4}
-            key={index}
+        <Grid
+          xs={2}
+          sm={4}
+          md={4}
+        >
+          <img
+            src={product?.imageURL}
+            alt="product_image"
+            height={500}
+            width={400}
+          />
+        </Grid>
+        <Grid
+          xs={2}
+          sm={4}
+          md={4}
+        >
+          <div className="sec-container">
+            <span className="head-text">Name:</span>
+            <span className="value-text">{product?.name}</span>
+          </div>
+
+          <div className="sec-container">
+            <span className="head-text">Price:</span>
+            <span className="value-text">${product?.price}</span>
+          </div>
+          <div className="sec-container">
+            <span className="head-text">Review:</span>
+            <span className="value-text">
+              <Rating
+                name="half-rating"
+                defaultValue={2.5}
+                precision={0.5}
+              />
+            </span>
+          </div>
+        </Grid>
+        <Grid
+          xs={2}
+          sm={4}
+          md={4}
+        >
+          <Card
+            sx={{ minWidth: 275 }}
+            className={"add-cart-card"}
           >
-            test
-          </Grid>
-        ))}
+            <CardContent>
+              <Typography
+                variant="h5"
+                component="div"
+              >
+                {product?.name}
+              </Typography>
+              <Typography
+                sx={{ mb: 1.5 }}
+                color="text.secondary"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatum sint officia neque corrupti enim molestiae sed, ad
+                saepe error impedit cumque eveniet, unde maiores id ea nesciunt
+                accusantium dicta magnam.
+              </Typography>
+              <Typography variant="body2">Quantity: 1</Typography>
+            </CardContent>
+            <CardActions>
+              <Button
+                variant="contained"
+                size="large"
+                color="warning"
+              >
+                Add To Cart
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
       </Grid>
     </>
   );

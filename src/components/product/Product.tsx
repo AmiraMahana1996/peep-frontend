@@ -1,14 +1,25 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import Button from "@mui/material/Button";
+
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import "./style.css";
+
 export default function Product(props: any) {
-  console.log(props);
+  const [isActive, setIsActive] = useState(false);
+
+  const handleFav = () => {
+    // 👇️ toggle
+    setIsActive((current: any) => !current);
+
+    // 👇️ or set to true
+    // setIsActive(true);
+  };
   return (
     <Card sx={{ maxWidth: 300 }}>
       <CardMedia
@@ -34,8 +45,14 @@ export default function Product(props: any) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-
+        <FavoriteIcon
+          fontSize="inherit"
+          className="fav-border-icon"
+          style={{
+            color: isActive ? "red" : "",
+          }}
+          onClick={handleFav}
+        />
         <Link
           className="nav-product"
           to={`product/${props.product._id}`}
