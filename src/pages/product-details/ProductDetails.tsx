@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import "./style.css";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getProductById } from "../../store/actions/products";
 import { IProduct } from "../../interfaces/Product";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -11,15 +9,15 @@ import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
+import { useSelector } from "react-redux";
 export default function ProductDetails() {
-  const product: IProduct = useSelector((state: any) => state.products[0]);
-
+  const products: IProduct[] = useSelector((state: any) => state.products);
+  const [product, setProduct] = useState<any>({});
   const { id } = useParams();
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch<any>(getProductById(id));
-    console.log(product);
+    const productt = products.find((product) => product._id === id);
+    setProduct(productt);
   }, []);
 
   return (
