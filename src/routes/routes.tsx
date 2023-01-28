@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "../pages/dashboard/Dashboard";
+import Favorite from "../pages/Favorite/Favorite";
 import ProductDetails from "../pages/product-details/ProductDetails";
 import Products from "../pages/products/Products";
 import ProtectedRoute from "./PrivateRoute";
@@ -23,6 +24,10 @@ export default function AppRoutes() {
       <Route
         path="/product/:id?"
         element={<ProductDetails />}
+      />
+      <Route
+        path="/favorite"
+        element={<Favorite />}
       />
     </Routes>
   );

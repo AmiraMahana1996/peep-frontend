@@ -15,7 +15,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
-
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { Link } from "react-router-dom";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -202,7 +203,9 @@ export default function SearchAppBar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <MailIcon />
+              <Link to={"/favorite"}>
+                <FavoriteIcon color="inherit" />
+              </Link>
             </IconButton>
             <IconButton
               size="large"

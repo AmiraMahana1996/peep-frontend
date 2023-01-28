@@ -9,16 +9,17 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import "./style.css";
+import { useDispatch } from "react-redux";
+import { addProductToFavorite } from "../../store/actions/products";
 
 export default function Product(props: any) {
-  const [isActive, setIsActive] = useState(false);
-
+  const [isfav, setIsfav] = useState(false);
+  const dispatch = useDispatch();
   const handleFav = () => {
-    // 👇️ toggle
-    setIsActive((current: any) => !current);
-
-    // 👇️ or set to true
-    // setIsActive(true);
+    //  toggle
+    setIsfav((current: any) => !current);
+    console.log(isfav);
+    dispatch<any>(addProductToFavorite(props.product._id, isfav));
   };
   return (
     <Card sx={{ maxWidth: 300 }}>
@@ -49,10 +50,11 @@ export default function Product(props: any) {
           fontSize="inherit"
           className="fav-border-icon"
           style={{
-            color: isActive ? "red" : "",
+            color: isfav ? "red" : "",
           }}
           onClick={handleFav}
         />
+
         <Link
           className="nav-product"
           to={`product/${props.product._id}`}
