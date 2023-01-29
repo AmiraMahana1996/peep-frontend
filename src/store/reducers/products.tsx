@@ -9,7 +9,6 @@ export default function productsReducer(state = [], action: any) {
       return [...state, action.payload];
     }
     case "ADD_FAVORITE": {
-      console.log(action.payload, "ADD_FAVORITE");
       return state;
     }
     default:

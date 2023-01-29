@@ -12,7 +12,6 @@ export default function Products() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch<any>(getProducts());
-    console.log(products, "products");
   }, []);
 
   return (

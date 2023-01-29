@@ -12,7 +12,7 @@ export default function Favorite() {
           item
           xs={12}
         >
-          <h1>Hell</h1>
+          <h1>Favorite Page</h1>
         </Grid>
       </Grid>
     </>
